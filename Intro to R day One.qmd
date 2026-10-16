@@ -1,0 +1,51 @@
+---
+title: "Intro to R Day 1"
+format: html
+editor: visual
+---
+
+## Setup
+
+### Packages
+
+# install.packages ("tidyverse")
+
+```{r}
+ggplot(data = penguins,
+       mapping = aes (x=bill_len, 
+                      y= bill_dep)) + 
+  geom_line()
+```
+
+
+```{r}
+library(tidyverse)
+penguins |> glimpse() |> count(island)
+```
+
+------------------------------------------------------------------------
+```{r}
+library(heatmap)
+penguins2 <- read_csv(file = "penguins_dataset.csv")
+penguins |> mean(flipper_len)
+my_variable <- 0983
+my_varıable
+```
+
+```{r}
+##install.packages("tidyverse")
+##library(tidyverse)
+```
+
+```{r}
+ penguins |> head()
+```
+
+
+```{r}
+```
+
+
+```{r}
+read_csv(file = "data/penguin_dataset.csv")
+```
