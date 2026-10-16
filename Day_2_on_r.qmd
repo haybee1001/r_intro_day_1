@@ -1,0 +1,55 @@
+---
+title: "Day_2_R_Training"
+format: html
+editor: visual
+---
+
+penguins \|\> filter(species == "Gentoo" \> 5000) \|\> count()
+
+penguins \|\> mutate(flipper_to_mass_ratio = bill_len/bill_dep) \|\> arrange(desc(flipper_to_mass_ratio))
+
+penguins \|\> mutate(flipper_to_mass_ratio = flipper_len/body_mass) \|\> arrange(desc(flipper_to_mass_ratio))
+
+penguins \|\> mutate(heavy = body_mass \> 4500)
+
+```{r}
+library(tidyverse)
+penguins |> relocate(body_mass) |> head()
+penguins |> arrange(desc(flipper_len)) |> head()
+penguins |> relocate(bill_dep, bill_len, flipper_len, body_mass, .after = species)
+
+penguins |> filter(species == "Adelie") |> count()
+
+penguins |> filter(species == "Gentoo" & body_mass > 5000) |> count()
+
+penguins |> select(contains("bill"))
+
+penguins |> filter(body_mass > 5000) |>
+            distinct(species, island) |> count()
+
+penguins |> mutate(body_mass_kg = body_mass/1000) 
+
+penguins |> mutate(flipper_to_mass_ratio = flipper_len/body_mass) |> arrange(desc(flipper_to_mass_ratio))
+
+penguins |> mutate(heavy = body_mass > 4500)
+
+penguins |> 
+   mutate(flipper_class = case_when(
+          flipper_len > 190 & flipper_len < 200  ~ "big",
+          flipper_len > 180 & flipper_len < 190  ~ "big",
+          TRUE ~ "small"
+          ))
+```
+
+```{r}
+library(tidyverse)
+penguins |> glimpse() |> count(island)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
